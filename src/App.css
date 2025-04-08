@@ -4,12 +4,34 @@
   padding: 2rem;
   text-align: center;
 }
+.app-container {
+  background-color: #2a1810;
+  min-height: 100vh;
+  color: #e8d5b5;
+}
+.header {
+  background: linear-gradient(145deg, #3d2615, #2a1810);
+  padding: 20px;
+  text-align: center;
+  border-bottom: 3px solid #8b4513;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.header h1 {
+  color: #ffd700;
+  font-size: 2.8em;
+  margin: 0;
+  font-family: 'MedievalSharp', cursive;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+}
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  height: 60px;
+  border-radius: 10px;
+  border: 2px solid #8b4513;
 }
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
@@ -17,7 +39,11 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
-
+.content {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -39,4 +65,74 @@
 
 .read-the-docs {
   color: #888;
+}
+/* Auth button styling */
+.auth-button-container {
+  text-align: right;
+  padding: 10px 20px;
+  background: linear-gradient(145deg, #3d2615, #2a1810);
+  border-bottom: 2px solid #8b4513;
+}
+
+/* Grid layouts for components */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Card styling */
+.card {
+  background: linear-gradient(145deg, #3d2615, #2a1810);
+  border: 2px solid #8b4513;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Form styling */
+input, textarea, select {
+  background-color: #3d2615;
+  border: 1px solid #8b4513;
+  color: #e8d5b5;
+  padding: 8px 12px;
+  border-radius: 5px;
+  width: 100%;
+  margin: 8px 0;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #ffd700;
+}
+
+/* Headings */
+h2, h3 {
+  color: #ffd700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: 'MedievalSharp', cursive;
+}
+
+/* Loading state */
+.loading {
+  text-align: center;
+  color: #ffd700;
+  font-size: 1.5em;
+  padding: 20px;
+}
+
+/* Error state */
+.error {
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.1);
+  border: 1px solid #ff6b6b;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0;
 }

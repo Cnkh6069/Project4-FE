@@ -1,35 +1,54 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import React from 'react'
+import { useAuth0 } from '@auth0/auth0-react'
+import {BrowserRouter as Router, Routes, Route, Outlet} from 'react-router-dom'
+import AuthButtons from './components/AuthButton'
+import Navbar from './components/Navbar'
+import Profile from './components/Profile'
+import Rewards from './components/Rewards'
+import AllTasks from './components/AllTasks'
+import MyTasks from './components/MyTasks'
+import CreateTask from './components/CreateTask'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { isAuthenticated } = useAuth0()
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <Router>
+    <div className="app-container">
+      <div className="header">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrz1If13MbDOQumsT6ZMegTQUIqCGDjgyuho6Wmhtv4WXv3fiDyjwibGWnaUl9iOXZwOc&usqp=CAU" className="logo" />
+        <h1>SG Guild Board</h1>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrz1If13MbDOQumsT6ZMegTQUIqCGDjgyuho6Wmhtv4WXv3fiDyjwibGWnaUl9iOXZwOc&usqp=CAU" className="logo" />
+        
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      <div><AuthButtons/></div>
+
+      {isAuthenticated && (
+        <>
+        <Navbar/>
+        <div className="content">
+          <Routes>
+<Route path="/" element={<Profile />} />
+<Route path="/rewards" element={<Rewards />} />
+<Route path="/tasks">
+  <Route index element={<AllTasks/>} />
+  <Route path="my-tasks" element={<MyTasks />} />
+</Route>
+<Route path="create" element={<CreateTask />}>
+</Route>
+</Routes>
+          </div>
+        </>
+      )}
+    </div>
+  </Router>
+)
 }
 
 export default App
+
