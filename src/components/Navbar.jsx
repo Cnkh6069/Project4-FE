@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import UserRewards from './UserRewards';
 
 const Navbar = () => {
   return (
     <nav className="navbar">
+      <UserRewards/>
       <ul>
         <li><Link to="/">Profile</Link></li>
         <li><Link to="/rewards">Rewards</Link></li>

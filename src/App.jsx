@@ -12,6 +12,7 @@ import Rewards from './components/Rewards'
 import AllTasks from './components/AllTasks'
 import MyTasks from './components/MyTasks'
 import CreateTask from './components/CreateTask'
+import EditTask from './components/EditTask'
 
 
 function App() {
@@ -37,10 +38,11 @@ function App() {
 <Route path="/rewards" element={<Rewards />} />
 <Route path="/tasks">
   <Route index element={<AllTasks/>} />
+  <Route path="create" element={<CreateTask />}/>
+  <Route path="/tasks/edit/:taskId" element={<EditTask />} />
   <Route path="my-tasks" element={<MyTasks />} />
 </Route>
-<Route path="create" element={<CreateTask />}>
-</Route>
+
 </Routes>
           </div>
         </>
